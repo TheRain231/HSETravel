@@ -1,0 +1,24 @@
+{
+  "originHash" : "c16dd19d2939dda10237f37b443061b6de02b300edf3d405f7861d2adde7889d",
+  "pins" : [
+    {
+      "identity" : "atlantis",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ProxymanApp/atlantis",
+      "state" : {
+        "revision" : "6427600ec87d516a43754e4eaa7762f3271ac77f",
+        "version" : "1.36.0"
+      }
+    },
+    {
+      "identity" : "swift-log",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-log.git",
+      "state" : {
+        "revision" : "92448c359f00ebe36ae97d3bd9086f13c7692b5a",
+        "version" : "1.13.2"
+      }
+    }
+  ],
+  "version" : 3
+}

@@ -1,54 +1,56 @@
 # HSETravel
 
-HSETravel is a sample iOS travel app that fetches country data, weather, and images from external APIs.
+Приложение для путешествий, которое показывает информацию о странах, погоде, фотографиях и избранных местах.
 
-## Setup
+## Основной функционал
 
-1. Copy `.env.example` to `.env`:
+- Поиск стран
+- Просмотр подробной информации о выбранной стране
+- Отображение текущей погоды через OpenWeather API
+- Загрузка фотографий страны через Unsplash API
+- Добавление стран в избранное
+- Экран "Избранное" для быстрого доступа к сохранённым странам
+- Настройки приложения
 
-```bash
-cp .env.example .env
-```
+## Архитектура
 
-2. Replace the placeholder values in `.env` with your API keys:
+HSETravel построено по принципам:
 
-```text
-OPENWEATHER_API_KEY=YOUR_OPENWEATHER_API_KEY
-UNSPLASH_API_KEY=YOUR_UNSPLASH_API_KEY
-RESTCOUNTRIES_API_KEY=YOUR_RESTCOUNTRIES_API_KEY
-```
+- MVVM — разделение экрана и логики представления
+- Coordinator — управление навигацией вне `UIViewController`
+- Dependency Injection — контейнер для репозиториев и сервисов
+- Репозитории — абстракция работы с API и локальными данными
+- Слой сети (`APIClient`, `Endpoint`, `NetworkError`) — централизованная конфигурация запросов
+- Core Data / Persistence — хранение избранных стран и состояние приложения
 
-3. Add `.env` to the app bundle resources in Xcode:
-   - Select the `HSETravel` app target
-   - Open `Build Phases`
-   - Add `.env` to `Copy Bundle Resources`
+## Основные фишки
 
-4. Build and run the app.
+- Гибкая навигация через `AppCoordinator`
+- Лёгкая тестируемость благодаря `ViewModel` и репозиториям
+- Централизованная загрузка изображений и кеширование
+- Поддержка нескольких API: OpenWeather и Unsplash
+- Удобный экран избранного с сохранением данных между запусками
 
-## Environment variables
+## Структура проекта
 
-The app looks for these keys in the `.env` file:
+- `AppDelegate.swift`, `SceneDelegate.swift` — запуск и конфигурация приложения
+- `Coordinators/` — навигация между экранами
+- `DI/` — контейнер зависимостей
+- `Models/` — модели данных (`Country`, `Photo`, `Weather`)
+- `Network/` — сеть (`APIClient`, `Endpoint`, `NetworkError`)
+- `Persistence/` — локальное хранение и избранное
+- `Repositories/` — работа с API и данными
+- `Services/` — вспомогательные сервисы (`ImageLoader`, логгер)
+- `ViewControllers/` — экраны приложения
+- `ViewModels/` — логика представления
+- `Views/` — пользовательские элементы интерфейса
 
-- `OPENWEATHER_API_KEY`
-- `UNSPLASH_API_KEY`
-- `RESTCOUNTRIES_API_KEY`
+## Скриншоты
 
-If `.env` is not found in the bundle, the loader will also try to read `.env` from the current working directory and then fallback to process environment variables.
+![Главное](screenshots/home.png)
+![Поиск](screenshots/search.png)
+![Детали страны](screenshots/details.png)
 
-## Screenshots
+## Примечания
 
-Place screenshot files in a dedicated folder such as `screenshots/` in the repo root.
-
-Example:
-
-```markdown
-![Home screen](screenshots/home.png)
-![Country details](screenshots/country_details.png)
-```
-
-This `README.md` is the right place to insert the screenshots section.
-
-## Notes
-
-- Do not commit your real `.env` file. Use `.env.example` as a reference.
-- `.gitignore` already ignores `.env`.
+- Если используете `.env` для ключей API, убедитесь, что секреты не попадают в репозиторий.

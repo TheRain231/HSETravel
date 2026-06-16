@@ -47,9 +47,25 @@ HSETravel построено по принципам:
 
 ## Скриншоты
 
-![Главное](screenshots/home.png)
-![Поиск](screenshots/search.png)
-![Детали страны](screenshots/details.png)
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshots/home.png" alt="Главное" width="280" />
+      <br />
+      **Главный экран**
+    </td>
+    <td align="center">
+      <img src="screenshots/search.png" alt="Поиск" width="280" />
+      <br />
+      **Экран поиска**
+    </td>
+    <td align="center">
+      <img src="screenshots/details.png" alt="Детали страны" width="280" />
+      <br />
+      **Детали страны**
+    </td>
+  </tr>
+</table>
 
 ## Примечания
 
